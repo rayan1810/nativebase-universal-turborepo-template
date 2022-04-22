@@ -39,11 +39,15 @@ function main() {
       }
     );
     shelljs.exec(
-      `cd ../${response.value} && npm install && cd apps/expo && npm install && cd ../next && npm install && cd ../../packages/app && npm install`
+      `cd ../${response.value} && npm install && cd apps/expo && npm install && cd ../next && npm install && cd ../../packages/app && npm install && cd ../.. && npm install`
     );
     shelljs.exec(`cd .. && rm -rf nativebase-templates`);
+    console.log("To start with your project, run: ");
+    console.log("cd " + response.value);
+    console.log("yarn web or npm run web");
+    console.log("yarn native or npm run native");
+    console.log("Setup Done, Happy Coding!");
   })();
-  console.log("Setup Done, Happy Coding!");
 }
 
 if (require.main === module) {
